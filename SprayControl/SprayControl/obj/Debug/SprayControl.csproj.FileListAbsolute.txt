@@ -8,3 +8,13 @@ C:\Users\mynam\OneDrive\Documents\school\2021\SIT210 Embeded Systems Dev\Main Pr
 C:\Users\mynam\OneDrive\Documents\school\2021\SIT210 Embeded Systems Dev\Main Project\SprayControl\SprayControl\obj\Debug\SprayControl.csproj.CoreCompileInputs.cache
 C:\Users\mynam\OneDrive\Documents\school\2021\SIT210 Embeded Systems Dev\Main Project\SprayControl\SprayControl\obj\Debug\SprayControl.exe
 C:\Users\mynam\OneDrive\Documents\school\2021\SIT210 Embeded Systems Dev\Main Project\SprayControl\SprayControl\obj\Debug\SprayControl.pdb
+C:\Users\mynam\OneDrive\Documents\school\2021\SIT210 Embeded Systems Dev\Main Project\SIT210-Project-Windows-forms-Desktop-application\SprayControl\SprayControl\bin\Debug\SprayControl.exe.config
+C:\Users\mynam\OneDrive\Documents\school\2021\SIT210 Embeded Systems Dev\Main Project\SIT210-Project-Windows-forms-Desktop-application\SprayControl\SprayControl\bin\Debug\SprayControl.exe
+C:\Users\mynam\OneDrive\Documents\school\2021\SIT210 Embeded Systems Dev\Main Project\SIT210-Project-Windows-forms-Desktop-application\SprayControl\SprayControl\bin\Debug\SprayControl.pdb
+C:\Users\mynam\OneDrive\Documents\school\2021\SIT210 Embeded Systems Dev\Main Project\SIT210-Project-Windows-forms-Desktop-application\SprayControl\SprayControl\obj\Debug\SprayControl.csprojAssemblyReference.cache
+C:\Users\mynam\OneDrive\Documents\school\2021\SIT210 Embeded Systems Dev\Main Project\SIT210-Project-Windows-forms-Desktop-application\SprayControl\SprayControl\obj\Debug\SprayControl.Form1.resources
+C:\Users\mynam\OneDrive\Documents\school\2021\SIT210 Embeded Systems Dev\Main Project\SIT210-Project-Windows-forms-Desktop-application\SprayControl\SprayControl\obj\Debug\SprayControl.Properties.Resources.resources
+C:\Users\mynam\OneDrive\Documents\school\2021\SIT210 Embeded Systems Dev\Main Project\SIT210-Project-Windows-forms-Desktop-application\SprayControl\SprayControl\obj\Debug\SprayControl.csproj.GenerateResource.cache
+C:\Users\mynam\OneDrive\Documents\school\2021\SIT210 Embeded Systems Dev\Main Project\SIT210-Project-Windows-forms-Desktop-application\SprayControl\SprayControl\obj\Debug\SprayControl.csproj.CoreCompileInputs.cache
+C:\Users\mynam\OneDrive\Documents\school\2021\SIT210 Embeded Systems Dev\Main Project\SIT210-Project-Windows-forms-Desktop-application\SprayControl\SprayControl\obj\Debug\SprayControl.exe
+C:\Users\mynam\OneDrive\Documents\school\2021\SIT210 Embeded Systems Dev\Main Project\SIT210-Project-Windows-forms-Desktop-application\SprayControl\SprayControl\obj\Debug\SprayControl.pdb

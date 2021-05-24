@@ -13,7 +13,7 @@ namespace SprayControl
 {
     public partial class Form1 : Form
     {
-        private static string apiUrl = "https://api.particle.io/v1/devices/e00fce68cb4c6f6733534412/SpraySystem?access_token=292b0e92e972aa309c7658b96530f868de081a03";
+        private static string apiUrl = "";
         public Form1()
         {
             InitializeComponent();
@@ -150,6 +150,11 @@ namespace SprayControl
             apiUrl = urlTextBox.Text;
             richTextBox1.Text = "URL: " + apiUrl + "\n" + "SAVED" + "\n" + richTextBox1.Text;
             urlTextBox.Clear();
+        }
+
+        private void urlTextBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

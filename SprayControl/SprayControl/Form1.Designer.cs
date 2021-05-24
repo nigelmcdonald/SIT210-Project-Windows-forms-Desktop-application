@@ -110,6 +110,7 @@
             this.urlTextBox.Name = "urlTextBox";
             this.urlTextBox.Size = new System.Drawing.Size(269, 20);
             this.urlTextBox.TabIndex = 6;
+            this.urlTextBox.TextChanged += new System.EventHandler(this.urlTextBox_TextChanged);
             // 
             // urlLabel
             // 
