@@ -1,0 +1,133 @@
+#include <stdio.h>
+#include <string.h>
+#include <string> 
+
+int value;
+int crashValue; // required because receiveEvent(int howMany) cause a reboot if a function or string is set/called, so can only set int
+String publishText;
+bool doPublish = false;
+bool byteSent = true;
+bool water = true;
+bool sensor = true;
+int ledPin = D7; 
+
+void setup()
+{
+    pinMode(ledPin, OUTPUT);// setup led
+    Wire.begin(0x8); // join i2c bus with address 4
+    Wire.onRequest(ReplyToRequest); // register wire.request interrupt event
+    Wire.onReceive(IncomingBytes); // register event
+    Serial.begin(9600);
+    Particle.function("SpraySystem", sendCommand); // setup available function
+    Particle.publish("SprayStatus", "Device Enabled", PRIVATE);
+}
+
+void loop()
+{
+    if (doPublish)
+    {
+        if  (crashValue == 11) // see variable description for reasoning
+        {
+            publishText = "Motion";
+        }
+        Particle.publish("SprayStatus", publishText, PRIVATE);
+        doPublish = false; // only publish once
+        crashValue = NULL; // reset variable to avoid double outputs
+        publishText = "";
+    }
+    delay(200);
+    digitalWrite(ledPin, LOW);// turn LED off
+}
+
+// reponce to request from master
+// requires bool to prevent repeatedly sending values
+// also Wire.write() causes reboot outside this function
+void ReplyToRequest() 
+{
+    if(!byteSent)
+    {
+        Wire.write(value);// sends one byte
+        Serial.print("Sending to PI: ");
+        Serial.println(value);// print the integer recieved, note this will not show in the serial due to a bug with serial.print
+        byteSent = true;
+    }
+    value = NULL;
+}
+
+// function that executes whenever data is received from master
+// this function is registered as an event, see setup()
+// this function will cause the argon to reboot in a multitude of simple ways from changing variables
+// to calling funcitons
+void IncomingBytes(int howMany)
+{
+    value = Wire.read();    // receive byte as an integer
+    Serial.print("Recieved from Pi: ");
+    Serial.println(value);// print the integer recieved, note this will not show in the serial due to a bug with serial.print
+    if(value == 11) // trigger publish for motion detected
+    {
+        crashValue = value;
+        doPublish = true;
+        digitalWrite(ledPin, HIGH); // turn LED on
+    }
+}
+
+int sendCommand(String command)
+{
+    Serial.println("Recieved from Web: " + command);// print the command string
+    if(command == "spray")
+    {
+        value = 99;
+        publishText ="Device Spray Recieved";
+        byteSent = false; //send value to PI
+        doPublish = true; //publish event
+        return value;
+    }
+    else if(command == "sensor")
+    {
+        sensor = !sensor;
+        if(sensor)
+        {
+            publishText ="Sensor On Recieved";
+            value = 100;
+        }
+        else
+        {
+            publishText ="Sensor Off Recieved";
+            value = 101;
+        }
+        byteSent = false; //send value to PI
+        doPublish = true; //publish event
+        return value;
+    }
+    else if(command == "water")
+    {
+        water = !water;
+        if(water)
+        {
+            publishText ="water On Recieved";
+            value = 102;
+        }
+        else
+        {
+            publishText ="water Off Recieved";
+            value = 103;
+        }
+        byteSent = false; //send value to PI
+        doPublish = true; //publish event
+        return value;
+    }
+    else if(command == "off")
+    {
+        publishText ="All Off Recieved";
+        value = 104;
+        byteSent = false; //send value to PI
+        doPublish = true; //publish event
+        return value;
+    }
+    else
+    {
+        publishText ="IVALID COMMAND";
+        doPublish = true;
+        return -1;
+    }
+}
